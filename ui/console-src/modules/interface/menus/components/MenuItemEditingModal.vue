@@ -301,14 +301,9 @@ onMounted(() => {
               :id="selectedRef.inputType"
               :key="selectedRef.inputType"
               v-model="selectedRefName"
-              :placeholder="
-                $t(
-                  'core.menu.menu_item_editing_modal.fields.ref_kind.placeholder',
-                  { label: selectedRef.label }
-                )
-              "
+              :placeholder="$t('core.menu.menu_item_editing_modal.fields.ref_kind.placeholder', { label: selectedRef.label })"
               :label="selectedRef.label"
-              :type="selectedRef.inputType"
+              :type="(selectedRef.inputType || 'text') as 'text' | 'select' | 'postSelect' | 'singlePageSelect' | 'categorySelect' | 'tagSelect'"
               validation="required"
             />
 

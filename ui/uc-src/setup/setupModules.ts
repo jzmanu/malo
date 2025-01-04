@@ -106,7 +106,7 @@ function registerModule(app: App, pluginModule: PluginModule, core: boolean) {
         const parentRoute = router
           .getRoutes()
           .find((item) => item.name === route.parentName);
-        if (parentRoute) {
+        if (parentRoute && route.parentName) {
           router.removeRoute(route.parentName);
           parentRoute.children = [...parentRoute.children, route.route];
           router.addRoute(parentRoute);
